@@ -1,0 +1,8 @@
+@import url('../src/vendor/normalize.css');
+@import '../src/utils/_variables.scss';
+
+
+body {
+    font-family: $font_stack;
+    background-color: $MAIN_COLOR;
+}

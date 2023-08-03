@@ -1,0 +1,32 @@
+@import '../../utils/_variables.scss';
+
+.characterList{
+   
+    &__container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 20px;    
+    }
+    &__button-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+    &__button-prev{
+    }
+    &__button-prev:hover{
+        background: $COLOR_HOVER;
+    }
+    &__button-next{
+    }
+    &__button-next:hover{
+        background: $COLOR_HOVER;
+    }
+    &__text{
+        color: $TEXT_COLOR;
+    }
+}
