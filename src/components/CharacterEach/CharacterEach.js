@@ -39,7 +39,7 @@ const CharacterEach = ({ item, createModal, openPopup }) => {
           alt="avatar"
         ></img>
         <div className="characterEach__container" >
-          <h2 className="characterEach__name">{item.name}</h2>
+          <a href={item.url}><h2 className="characterEach__name">{item.name}</h2></a>
           <div className="characterEach__box">
           <span className={point}></span>
             <span className="characterEach__status">{item.status}</span>

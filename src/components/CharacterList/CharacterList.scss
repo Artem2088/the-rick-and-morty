@@ -7,6 +7,15 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 20px;    
+
+        @media  screen and (max-width:1200px){
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media  screen and (max-width:780px){
+            display: flex;
+            flex-direction: column;
+        }
     }
     &__button-container{
         display: flex;

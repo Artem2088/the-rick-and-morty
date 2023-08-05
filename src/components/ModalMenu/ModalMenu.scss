@@ -1,0 +1,36 @@
+@import '../../utils//variables.scss';
+
+.modalMobile {
+    display: none;
+
+    &_open {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $COLOR_INPUT-BORDER;
+        display: block;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: center;
+        padding: 30px 50px;
+    }
+
+    &__box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        color: $MAIN_COLOR;
+    }
+    &__btn-close{
+        color: $MAIN_COLOR;
+        padding-bottom: 20px;
+    }
+}

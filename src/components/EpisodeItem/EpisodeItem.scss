@@ -1,0 +1,42 @@
+@import '../../utils/variables';
+
+.episode {
+width: 100%;
+padding: 10px;
+background: $CARD_COLOR;
+border-radius: 20px;
+
+    &__container {
+        max-width: 1920px;
+        width: 100%;
+    }
+
+    &__li {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    &__span {
+        display: block;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: $TEXT_COLOR;
+    }
+    &__ul-residents {
+        max-height: 250px;
+        overflow-y: scroll;
+        display: block;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: $TEXT_COLOR;
+    }
+
+    &__li-residents {
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        color: $TEXT_COLOR;
+    }
+}

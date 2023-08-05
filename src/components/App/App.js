@@ -9,23 +9,31 @@ import {
   getCharacterPagination,
   getCharacterId,
   getCharacterFilter,
+  getLocationInfo,
+  getEpisodesInfo
 } from "../../utils/MainApi";
 import "./App.scss";
+import PageNotFaund from "../PageNotFaund/pageNotFaund";
+import LocationLists from "../LocationLists/LocationLists";
+import EpisodesLists from "../EpisodesLists/EpisodesLists";
 
 const App = () => {
   const [characterInfo, setCharacterInfo] = useState("");
   const [count, setCount] = useState(1);
-  const [pagination, setPagination] = useState("");
   const [done, setIsDone] = useState(false);
   const [characterId, setCharacterId] = useState("");
   const [characterIdData, setCharacterIdData] = useState("");
   const [openModal, setIsOpenModal] = useState(false);
   const [openCheckbox, setIsOpenCheckbox] = useState(false);
   const [nameValue, setNameValue] = useState('');
-  const [filter, setFilter] = useState('')
+  const [characterAbout, setCharacterAbout] = useState('');
+  const [locationAbout, setLocationAbout] = useState('');
+  const [episodesAbout, setEpisodesAbout] = useState('');
 
   useEffect(() => {
     getUserInfo();
+    getLocation();
+    getEpisodes();
   }, []);
 
   useEffect(() => {
@@ -40,6 +48,7 @@ const App = () => {
     setIsDone(false);
     await getCharacterInfo()
       .then((user) => {
+        setCharacterAbout(user)
         setCharacterInfo(user.results);
         setIsDone(true);
       })
@@ -47,6 +56,30 @@ const App = () => {
         console.log(err);
       });
   };
+
+  const getLocation = async () => {
+    setIsDone(false);
+    await getLocationInfo()
+      .then((location) => {
+        setLocationAbout(location)
+        setIsDone(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+}
+
+const getEpisodes = async () => {
+  setIsDone(false);
+  await getEpisodesInfo()
+    .then((episodes) => {
+      setEpisodesAbout(episodes)
+      setIsDone(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
   const getPagination = async () => {
     setIsDone(false);
@@ -58,7 +91,7 @@ const App = () => {
         if (data.info.next == null) {
           return;
         } else {
-          setPagination(data.results);
+          setCharacterInfo([...data.results])
           setIsDone(true);
         }
       })
@@ -81,17 +114,14 @@ const App = () => {
 
   const getFilter = async (filterValue) => {
     setIsDone(false);
-   await filterValue.map((item) => {
-    console.log(nameValue)
-      getCharacterFilter(nameValue, item)
-      .then((data) => {
-        setFilter(data);
+    await getCharacterFilter(nameValue, filterValue)
+      .then((filter) => {
+        setCharacterInfo([...filter.results])
         setIsDone(true);
       })
       .catch((err) => {
         console.log(err);
       });
-    })
   };
 
   const getName = (name) => {
@@ -126,9 +156,9 @@ const App = () => {
   };
 
   return (
-    <div className="page">
+    <div className={openModal ? "page_open" : "page"}>
       <div className="page__container">
-        <Header handleOpenBox={handleOpenBox} openCheckbox={openCheckbox} />
+        <Header handleOpenBox={handleOpenBox} openCheckbox={openCheckbox} closePopup={closePopup}/>
         <Routes>
           <Route
             exact
@@ -138,7 +168,6 @@ const App = () => {
                 characterInfo={characterInfo}
                 decrementCount={decrementCount}
                 incrementCount={incrementCount}
-                pagination={pagination}
                 done={done}
                 createModal={createModal}
                 openModal={openModal}
@@ -146,18 +175,33 @@ const App = () => {
                 openCheckbox={openCheckbox}
                 onGetFilter={getFilter}
                 onGetName={getName}
-                filter={filter}
               />
             }
           />
-          <Route path="/location" />
+          <Route path="/location"
+          element={ 
+          <LocationLists 
+          locationAbout={locationAbout} 
+          />
+        }
+          />
+          <Route path="/episodes" 
+          element={
+            <EpisodesLists 
+            episodesAbout={episodesAbout}/>
+          }
+          />
+          <Route
+              path="*"
+              Component={PageNotFaund}
+            />
         </Routes>
         <Modal
           characterIdData={characterIdData}
           openModal={openModal}
           closePopup={closePopup}
         />
-        <Footer />
+        <Footer characterAbout={characterAbout} locationAbout={locationAbout} episodesAbout={episodesAbout}/>
       </div>
     </div>
   );

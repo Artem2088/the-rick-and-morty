@@ -58,10 +58,23 @@
         font-weight: 800;
         color: $TEXT_COLOR;
         padding-left: 10px;
+
+        @media screen and (max-width: 610px){
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 470px){
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 404px){
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 345px){
+            font-size: 12px;
+        }
     }
-
-    &__link {}
-
     &__box {
         display: flex;
         flex-direction: column;
@@ -76,5 +89,27 @@
         width: 40px;
         color: $TEXT_COLOR;
         cursor: pointer;
+
+        @media screen and (max-width: 610px){
+            top: 200px;
+        }
+
+        @media screen and (max-width: 470px){
+            right: 50px;
+        }
+
+        @media screen and (max-width: 470px){
+            right: 0;
+        }
+    }
+
+    &__link{
+
+        @media screen and (max-width: 450px){
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 337px;
+        }
     }
 }

@@ -3,6 +3,7 @@ import "./Modal.scss";
 
 
 const Modal = ({ characterIdData, openModal, closePopup }) => {
+
   return (
     <section className={openModal ?' modal__open' : 'modal'}>
       <div className="modal__container">
@@ -14,61 +15,61 @@ const Modal = ({ characterIdData, openModal, closePopup }) => {
         <ul className="modal__ul">
           <li className="modal__li">
             name:
-            <span className="modal__span">{characterIdData.name}</span>
+            <a href={characterIdData.url}><span className="modal__span">{characterIdData.name || 'null'}</span></a>
           </li>
           <li className="modal__li">
             status:
-            <span className="modal__span">{characterIdData.status}</span>
+            <span className="modal__span">{characterIdData.status|| 'null'}</span>
           </li>
           <li className="modal__li">
             species:
-            <span className="modal__span">{characterIdData.species}</span>
+            <span className="modal__span">{characterIdData.species|| 'null'}</span>
           </li>
           <li className="modal__li">
             type:
-            <span className="modal__span">{characterIdData.type}</span>
+            <span className="modal__span">{characterIdData.type || 'null'}</span>
           </li>
           <li className="modal__li">
             gender:
-            <span className="modal__span">{characterIdData.gender}</span>
+            <span className="modal__span">{characterIdData.gender|| 'null'}</span>
           </li>
           <li className="modal__li">
             origin:
             <div className="modal__box">
-              {/* <span className="modal__span">
-                name: {characterIdData.origin.name}
+              <span className="modal__span">
+                name: {characterIdData.origin?.name|| 'null'}
               </span>
-              <a className="modal__link" href="#">
+              <a className="modal__link" href={characterIdData.origin?.url|| 'null'}>
                 <span className="modal__span">
-                  url: {characterIdData.origin.url}
+                  url: {characterIdData.origin?.url|| 'null'}
                 </span>
-              </a> */}
+              </a>
             </div>
           </li>
           <li className="modal__li">
             location:
             <div className="modal__box">
-              {/* <span className="modal__span">
-                name: {characterIdData.location.name}
+              <span className="modal__span">
+                name: {characterIdData.location?.name|| 'null'}
               </span>
-              <a className="modal__link" href="#">
+              <a className="modal__link" href={characterIdData.location?.url|| 'null'}>
                 <span className="modal__span">
-                  url: {characterIdData.location.url}
+                  url: {characterIdData.location?.url|| 'null'}
                 </span>
-              </a> */}
+              </a>
             </div>
           </li>
           <li className="modal__li">
             episode:
-            <a className="modal__link" href="#"></a>
-          </li>
+            <a className="modal__link" href={characterIdData.episode}><span className="modal__span">episodes</span></a>
+          </li>  
           <li className="modal__li">
             url:
-            <span className="modal__span">{characterIdData.url}</span>
+            <a className="modal__link" href={characterIdData.url}><span className="modal__span">{characterIdData.url|| 'null'}</span></a>
           </li>
           <li className="modal__li">
             created:
-            <span className="modal__span">{characterIdData.created}</span>
+            <span className="modal__span">{characterIdData.created?.slice(0, 10) || ''}</span>
           </li>
         </ul>
       </div>

@@ -13,71 +13,70 @@ const Input = ({ openCheckbox, onGetFilter, onGetName }) => {
   const [valueGenderless, setValueGenderless] = useState("");
   const [valueGenderUnknown, setValueGenderUnknown] = useState("");
   const [name, setName] = useState("");
-  const filterValue = [
-    valueName,
-    valueAlive,
-    valueDead,
-    valueUnknown,
-    valueSpecies,
-    valueType,
-    valueFemale,
-    valueMale,
-    valueGenderless,
-    valueGenderUnknown,
-  ];
 
   const onChangeValueName = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueName(e.target.value);
   };
   const onChangeValueSpecies = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueSpecies(e.target.value);
   };
   const onChangeValueType = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueType(e.target.value);
   };
 
   const onChangeCheckboxAlive = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueAlive(e.target.value);
   };
 
   const onChangeCheckboxDead = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueDead(e.target.value);
   };
 
   const onChangeCheckboxUnknown = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueUnknown(e.target.value);
   };
 
   const onChangeCheckboxFemale = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueFemale(e.target.value);
   };
 
   const onChangeCheckboxMale = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueMale(e.target.value);
   };
 
   const onChangeCheckboxGenderless = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueGenderless(e.target.value);
   };
 
   const onChangeCheckboxGenderUnknown = (e) => {
-    setName(e.target.name)
+    setName(e.target.name);
     setValueGenderUnknown(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onGetFilter(filterValue);
-    onGetName(name)
+    onGetFilter(
+      valueName,
+      valueAlive,
+      valueDead,
+      valueUnknown,
+      valueSpecies,
+      valueType,
+      valueFemale,
+      valueMale,
+      valueGenderless,
+      valueGenderUnknown,
+    );
+    onGetName(name);
   };
 
   return (

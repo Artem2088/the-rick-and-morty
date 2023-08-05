@@ -14,6 +14,12 @@
         width: 100%;
         padding: 0 10px;
     }
+
+    &_open{
+        height: 100vh;
+        overflow-y: hidden;
+    }
+
 }
 
 .button {
@@ -22,3 +28,4 @@
     padding: 10px;
     border-radius: 15px;
 }
+

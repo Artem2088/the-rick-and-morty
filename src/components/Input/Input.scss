@@ -12,6 +12,10 @@
         justify-content: space-around;
         margin-bottom: 15px;
         border-radius: 15px;
+
+        @media screen and (max-width:480px) {
+            flex-direction: column;
+        }
     }
 
     &__box-input {

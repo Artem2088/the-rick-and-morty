@@ -15,10 +15,20 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
+        @media screen and (max-width: 480px) {
+            flex-direction: column;
+        }
     }
     &__image {
-        box-sizing: border-box;
+        max-width: 300px;
+        width: 68%;
+
+        @media screen and (max-width: 480px) {
+            width: 100%
+        }
     }
+    
     &__container {
         display: flex;
         flex-direction: column;
@@ -31,6 +41,14 @@
         font-style: normal;
         font-weight: 800;
         color: $TEXT_COLOR;
+
+        @media screen and (max-width:1400px) {
+            font-size: 22px;
+        }
+
+        @media screen and (max-width:800px) {
+            font-size: 20px;
+        }
     }
     &__status {
         font-size: 18px;

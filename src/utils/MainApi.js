@@ -1,4 +1,4 @@
-import { BASE_URL } from "./Constatnt";
+import { CHARACTER_URL, EPISODES_URL, LOCATION_URL } from "./Constatnt";
 
 function checkResponse(res) {
     if (res.ok) {
@@ -8,7 +8,27 @@ function checkResponse(res) {
   }
 
   export const getCharacterInfo = async () => {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${CHARACTER_URL}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return checkResponse(res);
+  };
+
+  export const getLocationInfo = async () => {
+    const res = await fetch(`${LOCATION_URL}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return checkResponse(res);
+  };
+
+  export const getEpisodesInfo = async () => {
+    const res = await fetch(`${EPISODES_URL}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +38,7 @@ function checkResponse(res) {
   };
 
   export const getCharacterPagination = async (count) => {
-    const res = await fetch(`${BASE_URL}/?page=${count}`, {
+    const res = await fetch(`${CHARACTER_URL}/?page=${count}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +48,7 @@ function checkResponse(res) {
   };
 
   export const getCharacterId = async (id) => {
-    const res = await fetch(`${BASE_URL}/${id}`, {
+    const res = await fetch(`${CHARACTER_URL}/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,8 +58,7 @@ function checkResponse(res) {
   };
 
   export const getCharacterFilter = async (name, value) => {
-    console.log(name, value)
-    const res = await fetch(`${BASE_URL}/?${name}=${value}`, {
+    const res = await fetch(`${CHARACTER_URL}/?${name}=${value}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,3 +66,5 @@ function checkResponse(res) {
     });
     return checkResponse(res);
   };
+
+  

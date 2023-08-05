@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import CharacterEach from "../CharacterEach/CharacterEach";
 import Input from "../Input/Input";
 import Loader from "../Loader/Loader";
@@ -8,14 +7,13 @@ const CharacterList = ({
   characterInfo,
   decrementCount,
   incrementCount,
-  pagination,
   done,
   createModal,
-  openPopup, 
+  openPopup,
   openCheckbox,
   onGetFilter,
-  onGetName, 
-  filter
+  onGetName,
+  filter,
 }) => {
 
   return (
@@ -23,16 +21,23 @@ const CharacterList = ({
       {!done ? (
         <Loader />
       ) : (
-        
-        <> {
-           <Input openCheckbox={openCheckbox} onGetFilter={onGetFilter} onGetName={onGetName}/>
-        }
+        <>
+          {
+            <Input
+              openCheckbox={openCheckbox}
+              onGetFilter={onGetFilter}
+              onGetName={onGetName}
+            />
+          }
           <ul className="characterList__container">
-            {filter === [] ? filter : [...(pagination && pagination),
-              characterInfo && characterInfo,
-            ].map((item) => (
-              <CharacterEach key={item.id} item={item} createModal={createModal} openPopup={openPopup}/>
-            ))}
+            {characterInfo && characterInfo.map((item) => (
+                  <CharacterEach
+                    key={item.id}
+                    item={item}
+                    createModal={createModal}
+                    openPopup={openPopup}
+                  />
+                ))}
           </ul>
           <div className="characterList__button-container">
             <button
