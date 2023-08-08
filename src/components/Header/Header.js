@@ -16,7 +16,7 @@ const Header = ({handleOpenBox, openCheckbox, closePopup}) => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
-  })
+  }, [])
   
   useEffect(() => {
     if(pathname === '/') {

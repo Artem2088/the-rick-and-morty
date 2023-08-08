@@ -11,7 +11,7 @@ const CharacterEach = ({ item, createModal, openPopup }) => {
 
   useEffect(() => {
     checkStatus();
-  })
+  }, [])
 
   const checkStatus = () => {
     if(item.status === "Alive"){
