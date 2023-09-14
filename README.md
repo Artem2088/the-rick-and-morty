@@ -8,6 +8,10 @@
 - БЭМ;
 - The Rick and Morty API is a REST(ish) and GraphQL API.
 
+## Дополнения и исправления:
+- Исправить ошибку 404 при первом запуске;
+- Переделать сетевые запросы на GraphQL;  
+
 ## Локальный запуск:
 
 - Работу можно посмотреть по ссылке: https://artem2088.github.io/the-rick-and-morty_search/
