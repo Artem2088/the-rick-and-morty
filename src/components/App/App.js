@@ -167,7 +167,7 @@ const App = () => {
         <Routes>
           <Route
             exact
-            path={HOMEPAGE ? "/" : "*"}
+            path="/"
             element={
               <Main
                 characterInfo={characterInfo}
