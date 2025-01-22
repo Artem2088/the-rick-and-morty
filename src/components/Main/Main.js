@@ -1,7 +1,7 @@
 import "./Main.scss";
 import CharacterList from "../CharacterList/CharacterList.js";
 
-const Main = ({ characterInfo, decrementCount, incrementCount, pagination, done, createModal, openPopup, openCheckbox, onGetFilter, onGetName, filter }) => {
+const Main = ({ characterInfo, decrementCount, incrementCount, pagination, done, createModal, openPopup, openCheckbox, onGetFilter, onGetName, filter,  handleOpenBox }) => {
   return (
     <main>
       <CharacterList
@@ -16,6 +16,7 @@ const Main = ({ characterInfo, decrementCount, incrementCount, pagination, done,
         onGetFilter={onGetFilter}
         onGetName={onGetName}
         filter={filter}
+        handleOpenBox={handleOpenBox}
       />
     </main>
   );

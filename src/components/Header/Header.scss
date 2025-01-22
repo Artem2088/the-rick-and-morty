@@ -33,16 +33,20 @@
     }
 
     &__span-text{
-        display: block;
+        display: inline-flex;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
         color: $TEXT_COLOR;
         cursor: pointer;
+        gap: 10px;
 
         &_close {
             display: none;
         }
+    }
+    &__span-text:hover {
+        opacity: .7;
     }
 
     &__mobileMenu {

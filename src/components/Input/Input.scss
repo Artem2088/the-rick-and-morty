@@ -1,17 +1,32 @@
 @import '../../utils/variables';
 
 .search {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $OVERLAY_COLOR;
+    width: 100vw;
+    height: 100vh;
+    transition: all .2s linear;
 
     &_open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__wrapper {
         display: flex;
         flex-direction: row;
-        background: $CARD_COLOR;
+        background-color: $CARD_COLOR;
         padding: 10px;
         align-items: flex-start;
         justify-content: space-around;
         margin-bottom: 15px;
         border-radius: 15px;
+        top: 118px;
+        position: relative;
 
         @media screen and (max-width:480px) {
             flex-direction: column;

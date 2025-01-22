@@ -85,4 +85,8 @@
         font-weight: 400;
         color: $TEXT_COLOR;
     }
+    &:hover {
+        opacity: .7;
+        transition: all .2s linear;
+    }
 }

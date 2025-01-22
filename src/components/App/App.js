@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -16,7 +16,6 @@ import "./App.scss";
 import PageNotFaund from "../PageNotFaund/pageNotFaund";
 import LocationLists from "../LocationLists/LocationLists";
 import EpisodesLists from "../EpisodesLists/EpisodesLists";
-import { HOMEPAGE } from "../../utils/Constatnt";
 
 const App = () => {
   const [characterInfo, setCharacterInfo] = useState("");
@@ -113,12 +112,16 @@ const App = () => {
       });
   };
 
-  const getFilter = async (filterValue) => {
+  const getFilter = async (...filterValue) => {
     setIsDone(false);
-    await getCharacterFilter(nameValue, filterValue)
+    let curentItem = filterValue.filter(item => {
+      return item !== '';
+    });
+    await getCharacterFilter(nameValue, curentItem)
       .then((filter) => {
         setCharacterInfo([...filter.results]);
         setIsDone(true);
+        setIsOpenCheckbox(!openCheckbox);
       })
       .catch((err) => {
         console.log(err);
@@ -152,12 +155,14 @@ const App = () => {
     setIsOpenModal(false);
   };
 
-  const handleOpenBox = () => {
-    setIsOpenCheckbox(!openCheckbox);
+  const handleOpenBox = (e) => {
+    if (e.target.className === 'search search_open' || e.target.className === 'header__span-text') {
+      setIsOpenCheckbox(!openCheckbox);
+    }
   };
 
   return (
-    <div className={openModal ? "page_open" : "page"}>
+    <div className={openModal || openCheckbox ? "page_open" : "page"}>
       <div className='page__container'>
         <Header
           handleOpenBox={handleOpenBox}
@@ -166,7 +171,6 @@ const App = () => {
         />
         <Routes>
           <Route
-            exact
             path="/"
             element={
               <Main
@@ -180,6 +184,7 @@ const App = () => {
                 openCheckbox={openCheckbox}
                 onGetFilter={getFilter}
                 onGetName={getName}
+                handleOpenBox={handleOpenBox}
               />
             }
           />

@@ -14,6 +14,7 @@ const CharacterList = ({
   onGetFilter,
   onGetName,
   filter,
+  handleOpenBox
 }) => {
 
   return (
@@ -27,6 +28,7 @@ const CharacterList = ({
               openCheckbox={openCheckbox}
               onGetFilter={onGetFilter}
               onGetName={onGetName}
+              handleOpenBox={handleOpenBox}
             />
           }
           <ul className="characterList__container">
