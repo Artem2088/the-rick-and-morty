@@ -11,7 +11,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 25px 40px;
+        padding: 25px 0;
     }
     &__logo {
         background: $TEXT_COLOR;
@@ -30,6 +30,11 @@
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
+
+        &_active {
+            border-bottom: 1px solid $COLOR_WHITE;
+            color: $COLOR_GRAY-MODAL;
+        }
     }
 
     &__span-text{
@@ -54,3 +59,5 @@
         width: 30px;
     }
 }
+
+

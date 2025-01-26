@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -25,10 +25,12 @@ const App = () => {
   const [characterIdData, setCharacterIdData] = useState("");
   const [openModal, setIsOpenModal] = useState(false);
   const [openCheckbox, setIsOpenCheckbox] = useState(false);
-  const [nameValue, setNameValue] = useState("");
+  const [nameValue, setNameValue] = useState([]);
   const [characterAbout, setCharacterAbout] = useState("");
   const [locationAbout, setLocationAbout] = useState("");
   const [episodesAbout, setEpisodesAbout] = useState("");
+  const [errorStatus, setErrorStatus] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   useEffect(() => {
     getUserInfo();
@@ -107,8 +109,8 @@ const App = () => {
         setCharacterIdData(data);
         setIsDone(true);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -123,8 +125,12 @@ const App = () => {
         setIsDone(true);
         setIsOpenCheckbox(!openCheckbox);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setErrorStatus(error);
+        setErrorText('В запросе произошла ошибка, попробуйте изменить запрос.')
+        console.log(error);
+        setIsDone(true);
+        setIsOpenModal(true);
       });
   };
 
@@ -202,6 +208,8 @@ const App = () => {
           characterIdData={characterIdData}
           openModal={openModal}
           closePopup={closePopup}
+          errorStatus={errorStatus}
+          errorText={errorText}
         />
         <Footer
           characterAbout={characterAbout}

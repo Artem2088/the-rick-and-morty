@@ -3,18 +3,16 @@
 .characterEach{
     display: flex;
     flex-direction: row;
-    align-items: center;
     background: $CARD_COLOR;
-    max-width: 600px;
     width: 100%;
-    border-radius: 10px;
     cursor: pointer;
+    max-width: 600px;
 
     &__wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        width: 100%;
 
         @media screen and (max-width: 480px) {
             flex-direction: column;
@@ -22,10 +20,13 @@
     }
     &__image {
         max-width: 300px;
-        width: 68%;
+        width: 50%;
+        object-fit: cover;
+        height: 100%;
 
         @media screen and (max-width: 480px) {
-            width: 100%
+            width: 100%;
+            max-width: 100%;
         }
     }
     

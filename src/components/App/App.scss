@@ -6,6 +6,7 @@
     align-items: center;
     width: 100%;
     position: relative;
+    overflow-x: hidden;
 
     &__container {
         display: flex;
@@ -13,14 +14,13 @@
         align-items: center;
         max-width: 1920px;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 20px;
     }
 
     &_open{
         height: 100vh;
         overflow-y: hidden;
     }
-
 }
 
 .button {

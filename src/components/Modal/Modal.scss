@@ -27,14 +27,28 @@
 
     &__container {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        column-gap: 30px;
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
 
+        @media screen and (max-width: 768px){
+           flex-direction: column;
+        }
     }
 
     &__avatar {
         border-radius: 10%;
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        max-width: 550px;
+
+        @media screen and (max-width: 768px){
+            max-width: fit-content;
+         }
     }
 
     &__ul {
@@ -59,16 +73,8 @@
         color: $TEXT_COLOR;
         padding-left: 10px;
 
-        @media screen and (max-width: 610px){
-            font-size: 20px;
-        }
-
-        @media screen and (max-width: 470px){
+        @media screen and (max-width: 768px){
             font-size: 18px;
-        }
-
-        @media screen and (max-width: 404px){
-            font-size: 15px;
         }
 
         @media screen and (max-width: 345px){
@@ -84,22 +90,16 @@
 
     &__btn-close{
         position: absolute;
-        top: 100px;
-        right: 100px;
-        width: 40px;
+        top: 3%;
+        right: 3%;
+        width: 25px;
+        aspect-ratio: 1;
         color: $TEXT_COLOR;
         cursor: pointer;
 
-        @media screen and (max-width: 610px){
-            top: 200px;
-        }
-
-        @media screen and (max-width: 470px){
-            right: 50px;
-        }
-
-        @media screen and (max-width: 470px){
-            right: 0;
+        @media screen and (max-width: 768px){
+            right: 4%;
+            top: 1%;
         }
     }
 
@@ -111,5 +111,18 @@
             text-overflow: ellipsis;
             max-width: 337px;
         }
+    }
+
+    &__container-error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+        font-size: 30px;
+        color: $TEXT_COLOR;
+    }
+
+    &__error-status {
+        color: $COLOR_RED;
     }
 }

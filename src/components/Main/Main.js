@@ -3,7 +3,7 @@ import CharacterList from "../CharacterList/CharacterList.js";
 
 const Main = ({ characterInfo, decrementCount, incrementCount, pagination, done, createModal, openPopup, openCheckbox, onGetFilter, onGetName, filter,  handleOpenBox }) => {
   return (
-    <main>
+    <main className="main"> 
       <CharacterList
         characterInfo={characterInfo}
         decrementCount={decrementCount}

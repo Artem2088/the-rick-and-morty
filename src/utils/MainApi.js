@@ -58,7 +58,23 @@ function checkResponse(res) {
   };
 
   export const getCharacterFilter = async (name, value) => {
-    const res = await fetch(`${CHARACTER_URL}/?${name}=${value}`, {
+    if (name.length === 1 && value.length === 1) {
+      const stringPath = `${name[0]}=${value[0]}`;
+      
+      const res = await fetch(`${CHARACTER_URL}/?${stringPath}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      return checkResponse(res);
+    } 
+    
+    const queryParams = name.map((itemName, index) => {
+      return `${itemName}=${value[index]}`;
+    }).join('&');
+  
+    const res = await fetch(`${CHARACTER_URL}/?${queryParams}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

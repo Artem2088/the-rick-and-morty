@@ -4,15 +4,11 @@
    
     &__container{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         gap: 20px;    
+        width: 100%;
 
-        @media  screen and (max-width:1200px){
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media  screen and (max-width:780px){
+        @media  screen and (max-width:786px){
             display: flex;
             flex-direction: column;
         }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Input.scss";
 
 const Input = ({ openCheckbox, onGetFilter, onGetName,  handleOpenBox }) => {
@@ -12,53 +12,107 @@ const Input = ({ openCheckbox, onGetFilter, onGetName,  handleOpenBox }) => {
   const [valueMale, setValueMale] = useState("");
   const [valueGenderless, setValueGenderless] = useState("");
   const [valueGenderUnknown, setValueGenderUnknown] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState([]);
+
+  useEffect (() => {
+    onGetName(name)
+  }, [name]);
 
   const onChangeValueName = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueName(e.target.value);
   };
   const onChangeValueSpecies = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueSpecies(e.target.value);
   };
   const onChangeValueType = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueType(e.target.value);
   };
 
   const onChangeCheckboxAlive = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueAlive(e.target.value);
   };
 
   const onChangeCheckboxDead = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueDead(e.target.value);
   };
 
   const onChangeCheckboxUnknown = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueUnknown(e.target.value);
   };
 
   const onChangeCheckboxFemale = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueFemale(e.target.value);
   };
 
   const onChangeCheckboxMale = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueMale(e.target.value);
   };
 
   const onChangeCheckboxGenderless = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueGenderless(e.target.value);
   };
 
   const onChangeCheckboxGenderUnknown = (e) => {
-    setName(e.target.name);
+    setName(prevName => {
+      if (!prevName.includes(e.target.name)) {
+        return [...prevName, e.target.name];
+      }
+      return prevName;
+    });
     setValueGenderUnknown(e.target.value);
   };
 
@@ -84,6 +138,7 @@ const Input = ({ openCheckbox, onGetFilter, onGetName,  handleOpenBox }) => {
       <div className="search__wrapper">
         <div className="search__container">
           <div className="search__box-input">
+            <form method="get" onSubmit={handleSubmit}></form>
             <label className="search__label">Имя</label>
             <input
               onChange={onChangeValueName}

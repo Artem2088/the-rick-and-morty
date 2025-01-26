@@ -16,7 +16,6 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        align-items: end;
         justify-content: center;
         padding: 30px 50px;
     }
@@ -28,6 +27,10 @@
 
     &__link {
         color: $MAIN_COLOR;
+    }
+    &__link_active {
+        color: $OVERLAY_COLOR;
+        border-bottom: 1px solid $MAIN_COLOR;
     }
     &__btn-close{
         color: $MAIN_COLOR;
