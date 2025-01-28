@@ -1,4 +1,4 @@
-# the-rick-and-morty_search
+# the-rick-and-morty
 Поиск и просмотр персонажей по мотивам мультсериала The Rick and Morty.
 
 ## Использованные технологии:
@@ -14,7 +14,7 @@
 
 ## Локальный запуск:
 
-- Работу можно посмотреть по ссылке: https://artem2088.github.io/the-rick-and-morty_search/
+- Работу можно посмотреть по ссылке: https://artem2088.github.io/the-rick-and-morty/
 
 или Вы можете запустить ее локально, для этого:
 
