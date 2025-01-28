@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.cfb7296f.css",
-    "main.js": "/static/js/main.fc3b043e.js",
+    "main.js": "/static/js/main.141a5d4a.js",
     "static/media/rick-sanchez.svg": "/static/media/rick-sanchez.5b9412b6f3bcd5488992313c5afa89dc.svg",
     "index.html": "/index.html",
     "main.cfb7296f.css.map": "/static/css/main.cfb7296f.css.map",
-    "main.fc3b043e.js.map": "/static/js/main.fc3b043e.js.map"
+    "main.141a5d4a.js.map": "/static/js/main.141a5d4a.js.map"
   },
   "entrypoints": [
     "static/css/main.cfb7296f.css",
-    "static/js/main.fc3b043e.js"
+    "static/js/main.141a5d4a.js"
   ]
 }
